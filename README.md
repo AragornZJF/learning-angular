@@ -49,7 +49,7 @@ AngularJS严重依赖MVC模式：
 
 - **Dependency Injection依赖注入** 在[00-2-concepts.html](https://github.com/zafarali/learning-angular/blob/master/00-2-concepts.html)中我们看到`ng-app`定义了`invoice-srv-demo`作为这个应用的主模块。在定义这个模块时，我们声明`finance`是一个主模块的依赖。我们也在传入来自finance模块的`currencyConverter`依赖后定义了controller的构造函数。这就是*依赖注入*。
 
-### 00-转变
+### 00-spin迷惑？
 #### 点.
 多亏了[这个视频](http://www.thinkster.io/angularjs/axAQatdKIq/angularjs-the-dot)才发现这个坑（疑难杂症）。
 ```html
@@ -416,7 +416,7 @@ defer.promise
 5. `url()` 返回的是path和query参数。 
 *注意`path()`、`search()`和`url()` 对于相同的属性也可以用于设置。*  
 
-- [ ] To Do：路由声明周期
+- [ ] To Do：路由生命周期
 
 ### 和服务端通信
 任何和服务端以及javascript打过交道的人都会遇到AJAX以及使用 `XMLHttpRequest()` 方法从服务端获取数据。AngularJS通过如下示例中展示的封装使得处理他们这些对象很容易。
@@ -496,14 +496,14 @@ newUser.$save();
 4. `.$remove()` 处理DELETE请求  
 5. `.$delete()` 处理DELETE请求
 获取和删除的方法们`.get()`、`.query()`、`.$remove()`以及`.$delete()` 能够传入一个带有`(value,headers)`的回调函数以及一个带有`httpResponse`参数的错误回调函数。
-一个完整的示例可能是这样的：`UserProfile.get({id:1}, function(data){/*成功之后做什么事情*/}, function(response){/*处理失败*/}`。  
+一个完整的示例可能是这样的：`UserProfile.get({id:1}, function(data){/*成功之后做什么事情*/}, function(response){/*处理失败*/})`。  
 设置`.$save()`函数被调用时可以传入一些发送的数据，且也会有回调模式。完整示例：
 `Notes.$save({noteId:2, author:'Camillo'}, "This is an amazing note wow", successCallback, errorCallback)`。
 
-1. **url** contains a parameterized version of the URL we are going to interact with. For example it can be: `http://www.myexample.com/data.json` or `http://www.myexample.com/api/user/:id`.  
-2. **parameters** sets default parameters that we are going to pass into the object. From what I see the most likely use case is with the `@` parameter. This will be elaborated later.  
-3. **options** Will be discussed later  
-4. **actions** will extend the functionality of the `$resource` object. This was demonstrated above but just for clarity here's another example: 
+1. **url** 包含了一个参数化的我们要去与之交互的URL版本。例如他能是：`http://www.myexample.com/data.json` 或者 `http://www.myexample.com/api/user/:id`。
+2. **parameters** 设置了我们将要传入到对象中的默认参数。以我来看最可能使用的是`@`参数。后边细说。
+3. **options** 后边讨论。
+4. **actions** 扩展`$resource`对象的功能。上面已经展示过了，但这里为了更清楚来看另一个例子：
 ```javascript
 app.factory('Notes', ['$resource', function($resource){
 	return $resource('api/notes/:id', null, {'update':{method:'PUT'}
@@ -511,58 +511,60 @@ app.factory('Notes', ['$resource', function($resource){
 }]);
 Notes.update({id:'2'}, "This is amazing!");
 ```
-We can now call `Notes.update({id:id}, data);` after injecting the `Notes` factory into our controller.  
-This makes our code easier to deal with by only dealing with objects and not with repeated instances of urls. We must note that `$resource` depends on `$http` which will be discussed shortly.
+把`Notes`factory注入到我们的controller之后，我们就可以调用`Notes.update({id:id}, data);`
 
-##### Notes Regarding Cross Domain Requests
-You may or may not know that Javascript cannot make AJAX calls to a domain thats not their own. i.e. your website (assuming you don't work for twitter) cannot ping twitter to get tweets. However, there is a method around this known as padding or *JSONP*. (I found out after the video that Twitter no longer offers this API without authentication, Instead I decided to use the [Meetup API for cities](http://www.meetup.com/meetup_api/docs/2/cities/)) . In the example [08-1-ngResource.html](https://github.com/zafarali/learning-angular/blob/master/08-1-ngResource.html) I override the usual GET method of the resource object with the JSONP method which allows me to access the Meetup API and retrieve nearest cities. Note that not all websites provide a JSONP enabled API. The page is made following the tutorial from [egghead.io](https://www.youtube.com/watch?v=IRelx4-ISbs). [Meetup Cities API](http://www.meetup.com/meetup_api/docs/2/cities/). **Read the comments in 08-1-ngResource.html for in depth explanation of what is happening**   
+这样我们的代码就能更容易处理，通过仅仅处理对象而不是去处理重复的url的实例。
 
-Another conversation I found online regarding the `ngResource` module is that the above example doesn't demonstrate its complete power. Infact `$resource` should be used when we have objects to `.get()`, manipulate and then `.$save()` back onto the server.   
+##### 注意跨域请求
+你可能不知道Javascript不能发一个其他域的AJAX请求。也就是说你的网站（假设你不在twitter工作）不能ping twitter来获得推文。但是，却有另外一个方法*JSONP*。（我发现在这之后Twitter不再提供这个API了除非你认证过了，所以我觉得使用[Meetup API for cities](http://www.meetup.com/meetup_api/docs/2/cities/)）。在[08-1-ngResource.html](https://github.com/zafarali/learning-angular/blob/master/08-1-ngResource.html)例子中我用JSONP重写了resource对象的通常的GET方法，这样我就能访问Meetup的API了，且能得到最近cities数据。需要注意的是并不是所有的网站都提供了可用的JSONP的API。这个页面是根据来自[egghead.io](https://www.youtube.com/watch?v=IRelx4-ISbs)的教程来做的。[Meetup Cities API](http://www.meetup.com/meetup_api/docs/2/cities/)。**如果想知道到底发生了什么，请看08-1-ngResource.html中的注释**   
 
-### Interesting things to know
-Here are a few things I felt like covering to give us a nice break from the very serious factory, provider, module, routing stuff we have been getting into
+上面的例子是我在网上发现的另一篇有关`ngResource`模块的文章介绍的，但也不能完全展示他的能力。实际上当我们有`.get()`、操作且`.$save()`到服务器上的对象的时候就应该使用`$resource`。
+
+### 需要知道的有趣的东西
+我们之前涉及了很枯燥的factory, provider, module, routing 细节，现在我觉得这里有一些不错的东西可以来休息下。
 #### `ngAnimate`
-Animations in AngularJS require us to inject a special module known as `ngAnimate` which adds special classes to elements that can be animated in special ways. In [08-0-ngAnimate.html](https://github.com/zafarali/learning-angular/blob/master/08-0-ngAnimate.html) we see three separate cases of how these are done using CSS.
-The key thing to remember here is that while the animation is being executed (i.e the transitions and the animations), the class of the element will have `.ng-enter-active`.
+在AngularJS中的动画需要我们注入一个名叫`ngAnimate`的特殊的模块，他会给元素增加一些特殊的class，这样就能通过特殊的方式来做动画了。在[08-0-ngAnimate.html](https://github.com/zafarali/learning-angular/blob/master/08-0-ngAnimate.html)中我们看到三种单独的怎样使用CSS来做动画的情况。
+这里关键需要记住的就是当动画执行的时候（也就是transitions和animations），元素就会有`.ng-enter-active`的类class。
 
 #### Scope通信
-We have seen previously that there are ways to watch for events/changes using `$watch` but here we introduce another way known as `$on`. This monitors the scope for an event of a name. For example:
+我们之前已经看到了几种使用`$watch`来watch观察events/changes的方式，但这里呢我们介绍另一种周知的`$on`。他监听了一个由名字的事件。例如：
 ```javascript
 scope.$on('myEventName', function(event, param1, param2, ...) {
 	console.log(param1 + ' ' + param2);
 	scope.doEvent(param1, param2);
 });
 
-//The above can be invoked by:
+//这样来触发上边的事件
 scope.$emit('myEventName', 'Hello', 'World');
-//or
+//或者
 scope.$broadcast('myEventName', 'Bye', 'World');
 ```
-What is the difference between `$emit` and `$broadcast`? As mentioned previously `$emit` propogates the event upwards and all controllers listening for `myEventName` in the parent scopes will be alerted. `$broadcast` does the opposite and propagates the event downwards. Note that both these events will also execute in their own scopes.  
+`$emit` 和 `$broadcast`之间有啥区别呢？如同之前提到的那样`$emit`会向上传播事件，所有在父scope的controller中有监听`myEventName`的地方都会触发。`$broadcast`正好相反，他会把这个事件向下传播。注意这些事件都会在他们自身的scope中执行。 
 
-A new example here [08-2-onEmitBroadcast.html](https://github.com/zafarali/learning-angular/blob/master/08-2-onEmitBroadcast.html) demonstrates this. Remember that declaring a new controller automatically creates a new scope. The page is also demonstrates inherited scopes and overriding properties.
-I've realized that this is one of AngularJS' most powerful feature.
+新的例子[08-2-onEmitBroadcast.html](https://github.com/zafarali/learning-angular/blob/master/08-2-onEmitBroadcast.html)展示了这种情况。记住声明了一个新的controller就会自动创建一个新的scope。这个页面也展示了继承了的scope以及重写属性。我意识到了这是AngularJS的最强大的特性之一。
 
-### Forms
-*Content from this section (Forms) is based off the course [Shaping Up With AngularJS](http://campus.codeschool.com/courses/shaping-up-with-angular-js/)*  
-Remember when we discussed [Angluar Classes above](https://github.com/zafarali/learning-angular#angular-classes)? AngluarJS provides us with a couple of other nice tricks and features that make form validations easier. Let's look at each of them step by step and then do an example:  
-- `ng-submit` is an attribute of the `<form>` element that has the function will be invoked when the user clicks the 'submit' button. Alternatively this function can also be in `ng-click` of the `<button>` element.  
-- `formname.$valid` is an object available on the global scope where formname is the `name` attribute of the `<form>` element. From this we can see that AngluarJS does alot behind the scene for us and will automatically validate the form. Returns `true` or `false`.
-- Coupling the `$valid` with the Angluar Classes we can make a very interactive form! See [here for example](https://github.com/zafarali/learning-angular/blob/master/09-0-forms.html)
+### Forms表单
+*本段内容（表单）是基于[Shaping Up With AngularJS](http://campus.codeschool.com/courses/shaping-up-with-angular-js/)课程的*  
 
-### `$compile` and Ustable Templates
-So we've wired up our web app with all this AngularJS goodness, everything has rendered and now ready for some juicy interactivity. I recently came across the problem of having to inject new HTML-Angular content into the page when the user clicks on something without changing the view/refreshing the page. I tried to use `$scope.$apply()`, or `$scope.$digest()` but these didn't work. They I figured that Angular doesn't KNOW about this new HTML content of our page.I found a function known as `$compile` that can help us achieve the required functionality.  
-The example is demonstrated in [09-1-compile.html](https://github.com/zafarali/learning-angular/blob/master/09-1-compile.html) where I inject some HTML after the page has loaded. Something that might confuse us: 
+还记得我们上边讨论的[Angluar Classes](https://github.com/zafarali/learning-angular#angular-classes)吗？AngluarJS提供了一些其他的很好的技巧和特性来更容易的做表单验证。让我们一步一步的来看，且会在后边做一个示例：
+- `ng-submit` 是`<form>`元素的一个属性，当用户点击'submit'按钮的时候，其中的函数就会被触发。当然还可以选择把这个函数放到`<button>`元素的`ng-click`中。 
+- `formname.$valid` 是一个在全局scope下的一个可用对象，formname就是`<form>`元素的`name`属性的值。从这里咱们可以看出来AngluarJS做了很多幕后工作，且会自动验证表单。返回`true` 或者 `false`。
+- `$valid`和Angluar Classes结合我们就能做很有意思的表单了！参见[这里示例](https://github.com/zafarali/learning-angular/blob/master/09-0-forms.html)。
+
+### `$compile` 和可变模板
+我们利用了AngularJS所有的美好的东西组成了我们的web app，所有的东西都已经渲染好了，且能做一些生动的交互了。最近我遇到了一个当用户点击一些东西的时候，不更改view/刷新页面然后注入新的带有Angular的HTML内容到页面上的问题。我尝试着用`$scope.$apply()`或者`$scope.$digest()`，但是都没用。然后我发现Angular根本不知道我们插入到页面上的那部分新的HTML内容。我发现一个`$compile`的函数，他能够帮我们来完成需要的功能。
+
+在[09-1-compile.html](https://github.com/zafarali/learning-angular/blob/master/09-1-compile.html)中展示的就是我在页面load之后注入了一些HTML的例子。有一些东西可能会迷惑我们：
 ```javascript 
 	//.....
-	//compilation is a two step process:
+	//编译分为两步：
 	var compiledStuff = $compile(myHTML);
-	//this returns a function that must be bound to a scope:
+	//这返回了一个必须绑定到一个scope的函数
 	compiledStuff($scope);
 ```	
-Now we should be able to load any HTML we need into our page using `$compile`. However, note that if an AngularJS alternative exists, it is recommended to use that.
+现在我们就可以使用`$compile`加载我们页面需要的任意的HTML了。但需要注意的是，如果AngularJS提供了其他选择的话，推荐使用它。
 
-### Providers and Injectors (advanced)
-- [ ] To be completed:  
+### Providers 和 Injectors注入器（高级）
+- [ ] 需要完成：
 #### Providers  
-#### Injectors
+#### Injectors注入器
