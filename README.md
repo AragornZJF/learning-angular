@@ -566,5 +566,5 @@ scope.$broadcast('myEventName', 'Bye', 'World');
 
 ### Providers 和 Injectors注入器（高级）
 - [ ] 需要完成：
-#### Providers  
-#### Injectors注入器
+	#### Providers  
+	#### Injectors注入器
