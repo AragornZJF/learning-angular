@@ -565,6 +565,6 @@ scope.$broadcast('myEventName', 'Bye', 'World');
 现在我们就可以使用`$compile`加载我们页面需要的任意的HTML了。但需要注意的是，如果AngularJS提供了其他选择的话，推荐使用它。
 
 ### Providers 和 Injectors注入器（高级）
-- [ ] 需要完成：
-	#### Providers  
-	#### Injectors注入器
+- [ ] 需要完成：  
+#### Providers  
+#### Injectors注入器
