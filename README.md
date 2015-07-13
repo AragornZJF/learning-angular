@@ -4,18 +4,18 @@ Learning AngularJS
 
 **注意: 关于Angular 2: Angular 2有很多改变，我可能会在夏天的时候会出一个关于Angular 2的教程！**
 
-***我已经注意到了主文件夹已经变得混乱不堪了，但基于所有的链接都已写死在README中了，我就不准备整理这些文件了。如果有新的教程的话我就会为那个课程创建单独的文件夹，用来存放对应的代码和README - *多谢访问！* ***
+***我已经注意到了主文件夹已经变得混乱不堪了，但基于所有的链接都已写死在README中了，所以我就不准备再整理这些文件了。如果有新的教程的话我就会为那个课程创建单独的文件夹，用来存放对应的代码和README - *多谢访问！* ***
 
 ![ng!](https://angularjs.org/img/AngularJS-large.png)
 
-因此这意味着我已经学习 AngularJS 有一段时间了，且我还在很多地方看了一些视频但却落下了，从没创建任何的具体的东西。这个项目会帮助我跟踪我的进度，通过两个我在 thinkster.io 和 codeschool.com上找的课程：  
+虽然我已经学习 AngularJS 有一段时间了，也在还在很多地方看了一些视频但却落下了，从没创建任何的具体的东西来实战。这个项目会帮助我跟踪我在 thinkster.io 和 codeschool.com上俩课程的进度： 
 
 1. [A Better Way to Learn AngularJS](http://www.thinkster.io/angularjs/GtaQ0oMGIl/a-better-way-to-learn-angularjs)  
 2. [Shaping up with AngularJS](http://campus.codeschool.com/courses/shaping-up-with-angular-js/intro)  
 
-这个项目也会包含来自其他资源的代码，当然我会在注释以及下边加上我找到他们的引用（链接）。也会有一部分在视频中展示的基础代码示例，这样我们就能准确看到关于围绕着那个点的就其他示例了。
+这个项目也会包含来自其他资源的代码，当然我会在注释以及下边加上我找到他们的引用（链接）。也会有一部分在视频中展示的基础代码示例，这样我们就能准确看到围绕着那个知识点相关的其他示例了。
 
-README也会追踪一些代码、陷阱、注释和其他诡计来再三的帮助像我一样在学习 AngularJS 的同胞们。希望对你有所帮助！
+README也会追踪一些代码、陷阱、注释和其他把戏来一次次的帮助像我一样在学习 AngularJS 的同志们。希望对你有所帮助！
 
 ##### 基础知识
 - [ ] HTML
