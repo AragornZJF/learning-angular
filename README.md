@@ -1,6 +1,6 @@
 Learning AngularJS
 ================
-持续更新
+更新
 
 **注意: 关于Angular 2: Angular 2有很多改变，我可能会在夏天的时候会出一个关于Angular 2的教程！**
 
