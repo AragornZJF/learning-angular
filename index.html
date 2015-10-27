@@ -5,7 +5,7 @@
     <title>Learning-angular by dolymood</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-    <!--<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>-->
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
   </head>
@@ -22,15 +22,15 @@
       <h1>
 <a id="learning-angularjs" class="anchor" href="#learning-angularjs" aria-hidden="true"><span class="octicon octicon-link"></span></a>Learning AngularJS</h1>
 
-<p>持续更新</p>
+<p>更新</p>
 
 <p><strong>注意: 关于Angular 2: Angular 2有很多改变，我可能会在夏天的时候会出一个关于Angular 2的教程！</strong></p>
 
-<p>**<em>我已经注意到了主文件夹已经变得混乱不堪了，但基于所有的链接都已写死在README中了，我就不准备整理这些文件了。如果有新的教程的话我就会为那个课程创建单独的文件夹，用来存放对应的代码和README - *多谢访问！</em> ***</p>
+<p>**<em>我已经注意到了主文件夹已经变得混乱不堪了，但基于所有的链接都已写死在README中了，所以我就不准备再整理这些文件了。如果有新的教程的话我就会为那个课程创建单独的文件夹，用来存放对应的代码和README - *多谢访问！</em> ***</p>
 
 <p><img src="https://angularjs.org/img/AngularJS-large.png" alt="ng!"></p>
 
-<p>因此这意味着我已经学习 AngularJS 有一段时间了，且我还在很多地方看了一些视频但却落下了，从没创建任何的具体的东西。这个项目会帮助我跟踪我的进度，通过两个我在 thinkster.io 和 codeschool.com上找的课程：  </p>
+<p>虽然我已经学习 AngularJS 有一段时间了，也在还在很多地方看了一些视频但却落下了，从没创建任何的具体的东西来实战。这个项目会帮助我跟踪我在 thinkster.io 和 codeschool.com上俩课程的进度： </p>
 
 <ol>
 <li>
@@ -41,9 +41,9 @@
 </li>
 </ol>
 
-<p>这个项目也会包含来自其他资源的代码，当然我会在注释以及下边加上我找到他们的引用（链接）。也会有一部分在视频中展示的基础代码示例，这样我们就能准确看到关于围绕着那个点的就其他示例了。</p>
+<p>这个项目也会包含来自其他资源的代码，当然我会在注释以及下边加上我找到他们的引用（链接）。也会有一部分在视频中展示的基础代码示例，这样我们就能准确看到围绕着那个知识点相关的其他示例了。</p>
 
-<p>README也会追踪一些代码、陷阱、注释和其他诡计来再三的帮助像我一样在学习 AngularJS 的同胞们。希望对你有所帮助！</p>
+<p>README也会追踪一些代码、陷阱、注释和其他把戏来一次次的帮助像我一样在学习 AngularJS 的同志们。希望对你有所帮助！</p>
 
 <h5>
 <a id="基础知识" class="anchor" href="#%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86" aria-hidden="true"><span class="octicon octicon-link"></span></a>基础知识</h5>
@@ -112,7 +112,7 @@
 
 <p>多亏了<a href="http://www.thinkster.io/angularjs/axAQatdKIq/angularjs-the-dot">这个视频</a>才发现这个坑（疑难杂症）。</p>
 
-<div class="highlight highlight-html"><pre><span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">    &lt;<span class="pl-ent">script</span>&gt;</span>
 <span class="pl-s1">        <span class="pl-k">function</span> <span class="pl-en">FirstCtrl</span>(<span class="pl-smi">$scope</span>) {}</span>
 <span class="pl-s1">        <span class="pl-k">function</span> <span class="pl-en">SecondCtrl</span>(<span class="pl-smi">$scope</span>) {} </span>
 <span class="pl-s1">    &lt;/<span class="pl-ent">script</span>&gt;</span>
@@ -129,7 +129,7 @@
 
 <p>如果我们的代码上上边的样子，<em>scope继承</em>就被破坏了。我们设置的每一个新的<code>ng-model</code>的值<code>message</code>都会创建一个新的message的示例，这也就意味着在两个<code>message</code>之间不再有交集了。为了避免这种情况，我们给<code>$scope</code>加一个带有message的<code>data</code>的model。我喜欢以每一个controller都有他自身的scope这样来思考，因为下边展示的修改后的代码也不会修复这个问题，且两个controller之间没有任何数据是共享的。</p>
 
-<div class="highlight highlight-html"><pre>    <span class="pl-c">&lt;!--脚本部分不变--&gt;</span>
+<div class="highlight highlight-text-html-basic"><pre>    <span class="pl-c">&lt;!--脚本部分不变--&gt;</span>
     &lt;<span class="pl-ent">div</span> <span class="pl-e">ng-app</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>&gt;
         &lt;<span class="pl-ent">div</span> <span class="pl-e">ng-controller</span>=<span class="pl-s"><span class="pl-pds">"</span>myCtrl<span class="pl-pds">"</span></span>&gt;
             &lt;<span class="pl-ent">input</span> <span class="pl-e">type</span>=<span class="pl-s"><span class="pl-pds">"</span>text<span class="pl-pds">"</span></span> <span class="pl-e">ng-model</span>=<span class="pl-s"><span class="pl-pds">"</span>data.message<span class="pl-pds">"</span></span>&gt;
@@ -143,7 +143,7 @@
 
 <p>然而照着下边的方式修改代码，整个的应用设置了一个scope，这样就会确保scope能够在两个controller之间同步。</p>
 
-<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!--脚本部分不变，我们初始化 data.message 的值为 'hi'--&gt;</span>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!--脚本部分不变，我们初始化 data.message 的值为 'hi'--&gt;</span>
     &lt;<span class="pl-ent">div</span> <span class="pl-e">ng-app</span>=<span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span> <span class="pl-e">ng-init</span>=<span class="pl-s"><span class="pl-pds">"</span>data.message='hi'<span class="pl-pds">"</span></span>&gt;
         {{data.message}}
         &lt;<span class="pl-ent">div</span> <span class="pl-e">ng-controller</span>=<span class="pl-s"><span class="pl-pds">"</span>myCtrl<span class="pl-pds">"</span></span>&gt;
@@ -163,7 +163,7 @@
 
 <p>这可以通过创建一个提供数据的<em>factory</em>来做。然后我们绑定本地的<code>$scope</code>到<code>Data</code>factory，然后我们就能再controller之间同步数据了。请看<a href="https://github.com/zafarali/learning-angular/blob/master/00-2-spin.html">00-2-spin.html</a>。</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> myApp <span class="pl-k">=</span> angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, []);
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> myApp <span class="pl-k">=</span> angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, []);
 myApp.factory(<span class="pl-s"><span class="pl-pds">'</span>Data<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){<span class="pl-k">return</span>{message<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>this is important<span class="pl-pds">"</span></span>};});
 <span class="pl-k">function</span> <span class="pl-en">myCtrl</span>(<span class="pl-smi">$scope</span>,<span class="pl-smi">Data</span>){$scope.<span class="pl-c1">data</span> <span class="pl-k">=</span> Data;}
 <span class="pl-k">function</span> <span class="pl-en">yourCtrl</span>(<span class="pl-smi">$scope</span>,<span class="pl-smi">Data</span>){$scope.<span class="pl-c1">data</span> <span class="pl-k">=</span> Data;}</pre></div>
@@ -173,7 +173,7 @@ myApp.factory(<span class="pl-s"><span class="pl-pds">'</span>Data<span class="p
 
 <p><a href="https://github.com/zafarali/learning-angular/blob/master/01-1-shopping.html">购物车</a>示例展示了AngularJS框架的一些其他的功能。或许你已经注意到了我们有两种创建<code>controller</code>的方法了（<em>译注：自从1.3之后第一种全局的默认不支持了，需要<code>$controllerProvider.allowGlobals()</code>才可以</em>）:</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-c">//方法 1</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//方法 1</span>
 <span class="pl-k">function</span> <span class="pl-en">Ctrl</span>(<span class="pl-smi">$scope</span>) {};
 <span class="pl-c">//方法 2</span>
 <span class="pl-k">var</span> myApp <span class="pl-k">=</span> angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, []);
@@ -190,10 +190,10 @@ myApp.controller(<span class="pl-s"><span class="pl-pds">'</span>Ctrl<span class
 
 <p>这里有语法需要学习，请看这个<a href="http://www.thinkster.io/angularjs/EnA7rkqH82/angularjs-filters">视频</a>，然后看我<a href="https://github.com/zafarali/learning-angular/blob/master/02-1-filters.html">敲</a>的伪代码。下边的另一个例子显示了可以像这样<code>text|decimal2binary:true</code>来使用额外的参数：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-c">//将10进制转化为二进制字符串</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//将10进制转化为二进制字符串</span>
 app.filter(<span class="pl-s"><span class="pl-pds">'</span>decimal2binary<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
     <span class="pl-k">function</span> <span class="pl-en">convert</span>(<span class="pl-smi">num</span>,<span class="pl-smi">bool</span>){
-        <span class="pl-k">if</span>(bool) { <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>You specified true<span class="pl-pds">'</span></span>); }
+        <span class="pl-k">if</span>(bool) { <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>You specified true<span class="pl-pds">'</span></span>); }
         <span class="pl-k">return</span> <span class="pl-c1">parseInt</span>(num,<span class="pl-c1">10</span>).<span class="pl-c1">toString</span>(<span class="pl-c1">2</span>);
     }
     <span class="pl-k">return</span> <span class="pl-k">function</span>(<span class="pl-smi">input</span>, <span class="pl-smi">bool</span>){
@@ -219,7 +219,7 @@ app.filter(<span class="pl-s"><span class="pl-pds">'</span>decimal2binary<span c
 <code>number</code> 接收一个整数参数，然后舍入到指定的位数。（例如：传入0就会舍入到没有小数位——0小数位）</li>
 </ul>
 
-<div class="highlight highlight-html"><pre>&lt;<span class="pl-ent">span</span> <span class="pl-e">ng-repeat</span>=<span class="pl-s"><span class="pl-pds">"</span>element in list | filter: search | orderBy: 'lastname' | limitTo: 4<span class="pl-pds">"</span></span>&gt;
+<div class="highlight highlight-text-html-basic"><pre>&lt;<span class="pl-ent">span</span> <span class="pl-e">ng-repeat</span>=<span class="pl-s"><span class="pl-pds">"</span>element in list | filter: search | orderBy: 'lastname' | limitTo: 4<span class="pl-pds">"</span></span>&gt;
 {{element.lastname | uppercase}}, {{element.firstname | lowercase}}
 &lt;/<span class="pl-ent">span</span>&gt;</pre></div>
 
@@ -236,7 +236,7 @@ app.filter(<span class="pl-s"><span class="pl-pds">'</span>decimal2binary<span c
 
 <p>这个<a href="https://github.com/zafarali/learning-angular/commit/403aad17fce1eb09e58b759dad63025db5166cf8">提交</a>展示了一个我们创建的自定义属性。这里，我们不是设置<code>restrict:"E"</code>，我们设置的是<code>restrict:"A"</code>且提供了一个<code>link</code>函数，这个函数就会在这个属性加上的时候执行。如果我们设置<code>restrict:"C"</code>，然后这个指令就会在我们有一个那个名字<a href="https://github.com/zafarali/learning-angular/commit/552ae91250175137f9e2b742883c7973c463dd48">（参见提交）</a>类的时候执行。我们还会有<code>restrict:"M"</code>在注释中使用的指令，如下:</p>
 
-<div class="highlight highlight-html"><pre><span class="pl-c">&lt;!--directive:myDirective--&gt;</span></pre></div>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-c">&lt;!--directive:myDirective--&gt;</span></pre></div>
 
 <h4>
 <a id="有用的指令" class="anchor" href="#%E6%9C%89%E7%94%A8%E7%9A%84%E6%8C%87%E4%BB%A4" aria-hidden="true"><span class="octicon octicon-link"></span></a>有用的指令</h4>
@@ -272,7 +272,7 @@ app.filter(<span class="pl-s"><span class="pl-pds">'</span>decimal2binary<span c
 <code>transclude</code> 允许你将指令的孩子移动到模板内部。我们可以通过在目标位置指定<code>ng-transclude</code>属性来做使用。在这个例子中，他的目标就是<code>&lt;span&gt;</code>而不是其他的<code>&lt;div&gt;</code>：</li>
 </ul>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-c">//...</span>
+<div class="highlight highlight-source-js"><pre><span class="pl-c">//...</span>
 transclude<span class="pl-k">:</span><span class="pl-c1">true</span>,
 template<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>&lt;div&gt;&lt;div&gt;&lt;span ng-transclude&gt;&lt;/span&gt;&lt;/div&gt;&lt;/div&gt;<span class="pl-pds">"</span></span>,
 <span class="pl-c">//...</span></pre></div>
@@ -300,12 +300,12 @@ template<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</sp
 2. <strong>compile phase编译阶段</strong> 就是指令注册、应用模板以及执行<em>compile</em>函数的阶段。
 3. <strong>link phase链接阶段</strong> 一旦模板已经应用了且compile编译函数执行完成之后就进入了。在这个阶段<em>link</em>函数就会执行无论view中的数据何时更新。我认为他们之间的主要的区别就是<em>compile</em>函数只会在编译阶段执行一次，然而<code>link</code>函数则是任何的该指令的实例都会执行一次。现在我还没看到使用编译函数的场景，但是在书中的建议是当你需要对所有的情况下都修改东西（<em>译注：例如修改模板</em>）的情况下是很有用的。注意下边的函数定义间的不同之处，<code>compile</code>函数不能访问scope，因为那时候还没创建呢。</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">return</span> {
+<div class="highlight highlight-source-js"><pre><span class="pl-k">return</span> {
     restrict<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
     require<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span><span class="pl-pds">"</span></span>,
-    <span class="pl-en">controller</span>:<span class="pl-k">function</span>(<span class="pl-smi">scope</span>,<span class="pl-smi">element</span>,<span class="pl-smi">attrs</span>){},
-    <span class="pl-en">compile</span>: <span class="pl-k">function</span>(<span class="pl-smi">templateElement</span>, <span class="pl-smi">templateAttrs</span>, <span class="pl-smi">transclude</span>){},
-    <span class="pl-en">link</span>: <span class="pl-k">function</span>(<span class="pl-smi">scope</span>, <span class="pl-smi">instanceElement</span>, <span class="pl-smi">instanceAttrs</span>, <span class="pl-smi">controller</span>){}
+    <span class="pl-en">controller</span><span class="pl-k">:</span><span class="pl-k">function</span>(<span class="pl-smi">scope</span>,<span class="pl-smi">element</span>,<span class="pl-smi">attrs</span>){},
+    <span class="pl-en">compile</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">templateElement</span>, <span class="pl-smi">templateAttrs</span>, <span class="pl-smi">transclude</span>){},
+    <span class="pl-en">link</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">scope</span>, <span class="pl-smi">instanceElement</span>, <span class="pl-smi">instanceAttrs</span>, <span class="pl-smi">controller</span>){}
 }</pre></div>
 
 <p>如果我们看下<a href="https://github.com/zafarali/learning-angular/blob/master/03-8-compilevslink.html">03-8-compilevslink.html</a>文件，我们发现log在<code>controller</code>和<code>compile</code>的<code>pre</code>和<code>post</code>中执行了，但在link中没执行。尝试各种组合之后，我们发现如果你有一个<code>compile</code>的话，你就不能有<code>link</code>了，但你可以在<code>compile</code>函数中设置一个<code>pre</code>和<code>post</code>函数来达到和<code>link</code>一样效果。 
@@ -348,7 +348,7 @@ template<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</sp
 <li>我们注意到有* <strong>一个</strong> 根scope*，且Angular首先会在当前scope中查找，然后才会去父scope中找，直到到了根scope。展示如下：</li>
 </ul>
 
-<div class="highlight highlight-html"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt;</span>
 <span class="pl-s1"><span class="pl-k">function</span> <span class="pl-en">MyParentCtrl</span>(<span class="pl-smi">$scope</span>){</span>
 <span class="pl-s1">    $scope.<span class="pl-c1">name</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>John Doe<span class="pl-pds">'</span></span>; </span>
 <span class="pl-s1">    $scope.home<span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">'</span>Canada<span class="pl-pds">'</span></span>;</span>
@@ -374,7 +374,7 @@ Hello Jane Doe! You are from Canada</code>。这展示了重点。</p>
 <code>Controller as</code> 语法允许我们通过<em>别名</em>来引用controller：</li>
 </ul>
 
-<div class="highlight highlight-html"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt; <span class="pl-k">function</span> <span class="pl-en">MyLongCtrlName</span>(){</span>
+<div class="highlight highlight-text-html-basic"><pre><span class="pl-s1">&lt;<span class="pl-ent">script</span>&gt; <span class="pl-k">function</span> <span class="pl-en">MyLongCtrlName</span>(){</span>
 <span class="pl-s1">    <span class="pl-c1">this</span>.<span class="pl-en">clickMe</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){</span>
 <span class="pl-s1">        <span class="pl-c1">alert</span>(<span class="pl-s"><span class="pl-pds">"</span>You clicked me!!<span class="pl-pds">"</span></span>);</span>
 <span class="pl-s1">    }</span>
@@ -398,7 +398,7 @@ Hello Jane Doe! You are from Canada</code>。这展示了重点。</p>
 <li>这样考虑设置：</li>
 </ul>
 
-<div class="highlight highlight-javascript"><pre>app.controller(<span class="pl-s"><span class="pl-pds">"</span>Ctrl<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$scope</span>){
+<div class="highlight highlight-source-js"><pre>app.controller(<span class="pl-s"><span class="pl-pds">"</span>Ctrl<span class="pl-pds">"</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$scope</span>){
     <span class="pl-v">this</span>.hi <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">'</span>Hello<span class="pl-pds">'</span></span>;
     <span class="pl-c1">this</span>.<span class="pl-en">sayHi</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(){
         <span class="pl-c1">alert</span>(<span class="pl-v">this</span>.hi);
@@ -412,7 +412,7 @@ Hello Jane Doe! You are from Canada</code>。这展示了重点。</p>
 <li>组织。我们可以像这样组织和初始化我们的controller。（但这样filters不好使了就)</li>
 </ul>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> app <span class="pl-k">=</span> angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, []);
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> app <span class="pl-k">=</span> angular.module(<span class="pl-s"><span class="pl-pds">'</span>myApp<span class="pl-pds">'</span></span>, []);
 <span class="pl-k">var</span> myAppComponents <span class="pl-k">=</span> {};
 
 myAppComponents.<span class="pl-c1">controllers</span> <span class="pl-k">=</span> {};
@@ -445,9 +445,9 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 
 <p><code>$watch(toWatch, toDo, deepWatch)</code> 是一个函数，允许你观察你的model的变化。我们必须注意的是执行这个表达式会返回一个函数，如果执行了他的话就可以停止这个监测。例如：</p>
 
-<div class="highlight highlight-javascript"><pre>$scope.$<span class="pl-c1">watch</span>(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
+<div class="highlight highlight-source-js"><pre>$scope.$<span class="pl-c1">watch</span>(<span class="pl-s"><span class="pl-pds">'</span>username<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(){
     <span class="pl-k">if</span>($scope.username<span class="pl-k">==</span><span class="pl-s"><span class="pl-pds">'</span>secret<span class="pl-pds">'</span></span>){
-        <span class="pl-en">console</span><span class="pl-c1">.log</span>(<span class="pl-s"><span class="pl-pds">'</span>You typed in a secret name<span class="pl-pds">'</span></span>);
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">'</span>You typed in a secret name<span class="pl-pds">'</span></span>);
     }
 });</pre></div>
 
@@ -471,7 +471,7 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 <code>ng-class</code> 是一个元素的属性。我们传进去一个对象，key就是类的名字，而value值就是条件。下边示例：</li>
 </ul>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">&lt;</span>div ng<span class="pl-k">-</span><span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>{ showClass: whenThisIsTrue, showErrorClass: whenErrorIsTrue, neutralClass: !whenThisisTrue &amp;&amp; !whenErrorIsTrue }<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>...<span class="pl-k">&lt;</span>/div<span class="pl-k">&gt;</span></pre></div>
+<div class="highlight highlight-source-js"><pre><span class="pl-k">&lt;</span>div ng<span class="pl-k">-</span><span class="pl-k">class</span><span class="pl-k">=</span><span class="pl-s"><span class="pl-pds">"</span>{ showClass: whenThisIsTrue, showErrorClass: whenErrorIsTrue, neutralClass: !whenThisisTrue &amp;&amp; !whenErrorIsTrue }<span class="pl-pds">"</span></span><span class="pl-k">&gt;</span>...<span class="pl-k">&lt;/</span>div<span class="pl-k">&gt;</span></pre></div>
 
 <p>查看更多，<a href="https://docs.angularjs.org/guide/css-styling">这里</a></p>
 
@@ -499,14 +499,12 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 <p><em>这需要你有一个在跑的server，在Mac上可以简单的在bash命令行中执行<code>php -S localhost:8080</code></em></p>
 
 <h4>
-<a id="appconfig函数" class="anchor" href="#appconfig%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>app.config</code>函数</h4>
+<a id="appconfig函数" class="anchor" href="#appconfig%E5%87%BD%E6%95%B0" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>app.config</code>函数</h4>
 
 <p>在我们的应用的配置config阶段，我们可以使用一些已知的providers对象。他们生成的是service的实例。现在这不是重点，但是基本的我们需要知道在controller中，设置<code>.config</code>的时候什么是可用的。</p>
 
 <h4>
-<a id="ng-view-和-routeprovider" class="anchor" href="#ng-view-%E5%92%8C-routeprovider" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>ng-view</code> 和 <code>$routeProvider</code>
+<a id="ng-view-和-routeprovider" class="anchor" href="#ng-view-%E5%92%8C-routeprovider" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>ng-view</code> 和 <code>$routeProvider</code>
 </h4>
 
 <p><code>ng-view</code> 是一个扮演着Angular能加载view的窗口。在<code>config</code>函数中，我们注入<code>$routeProvider</code>，然后可以配置不同的view以及对应view的controller。如果你之前从没见过路由额话是很难理解的，但是语法很简单。
@@ -521,7 +519,7 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 
 <p>当我们把<code>$routeParams</code>对象注入进controller的时候，我们就可以访问来自route路由的参数了。我们按照如下形式给<code>$routeProvider</code>定义参数：</p>
 
-<div class="highlight highlight-javascript"><pre>app.config([<span class="pl-s"><span class="pl-pds">'</span>$routeProvider<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$routeProvider</span>){
+<div class="highlight highlight-source-js"><pre>app.config([<span class="pl-s"><span class="pl-pds">'</span>$routeProvider<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$routeProvider</span>){
     $routeProvider.when(<span class="pl-s"><span class="pl-pds">'</span>/path/:message<span class="pl-pds">'</span></span>,{
                 templateUrl<span class="pl-k">:</span>myUrl,
                 controller<span class="pl-k">:</span>myCtrl
@@ -536,18 +534,18 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 <p>我称之为动态处理（听起来更酷），但实际上只需要用一个函数来返回一个动态的URL来替代之前的展示给用户一个字符串。这里的关键就是给<code>.when()</code>方法传入的对象使用<code>redirectTo</code>属性。
 设想这样的场景，你有一个'MyAmazingBlog'的博客，且已经多年使用<code>#/blog/postid</code>，但是你想开始一个新博客'ExtraBlogStuff'，当然还希望将用户重定向到正确的URL。我们可以照如下写一个函数：</p>
 
-<div class="highlight highlight-javascript"><pre>app.config([<span class="pl-s"><span class="pl-pds">'</span>$routeProvider<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$routeProvider</span>){
+<div class="highlight highlight-source-js"><pre>app.config([<span class="pl-s"><span class="pl-pds">'</span>$routeProvider<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$routeProvider</span>){
     $routeProvider.when(<span class="pl-s"><span class="pl-pds">'</span>/blog/:blogname/:blogpost<span class="pl-pds">'</span></span>,{
 
         <span class="pl-c">//对于MyAmazingBlog或ExtraBlogStuff博客而言，都返回一个正确的模板。</span>
         <span class="pl-c">//如果没有指定的话就会移动到下一个//the next .when()，</span>
-        <span class="pl-en">templateUrl</span>:<span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>){
+        <span class="pl-en">templateUrl</span><span class="pl-k">:</span><span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>){
         <span class="pl-k">return</span> routeParams.blogname<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">'</span>.html<span class="pl-pds">'</span></span>; },
         controller<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>BlogCtrl<span class="pl-pds">'</span></span>
     })
     .when(<span class="pl-s"><span class="pl-pds">'</span>/blog/:blogpost<span class="pl-pds">'</span></span>, {
         <span class="pl-c">//这里我们重定向我们的老的用户到新的博客</span>
-        <span class="pl-en">redirectTo</span>:<span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>){
+        <span class="pl-en">redirectTo</span><span class="pl-k">:</span><span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>){
         <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>/blog/MyAmazingBlog/<span class="pl-pds">'</span></span><span class="pl-k">+</span>routeParams.blogpost;
     });
 }]);</pre></div>
@@ -555,7 +553,7 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 <p>我希望这个例子已经清楚的展示了一个使用的示例，以及怎样正确去使用'$routeParams' 和 '$routeProvider' 对象。
 <em>注意：其他的我们能给在路由provider中的函数传进去的参数如下：</em></p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>, <span class="pl-smi">path</span>, <span class="pl-smi">search</span>){
+<div class="highlight highlight-source-js"><pre><span class="pl-k">function</span>(<span class="pl-smi">routeParams</span>, <span class="pl-smi">path</span>, <span class="pl-smi">search</span>){
     <span class="pl-c">//routeParams上边我们已经看到了</span>
     <span class="pl-c">//path 是完整的路径url</span>
     <span class="pl-c">//search 返回的是路径url后面的查询</span>
@@ -570,7 +568,7 @@ app.controller(myAppComponents.<span class="pl-c1">controllers</span>);</pre></d
 Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的就是我们会处理一个<code>defer</code>对象，我们能传入一系列的函数<em>（生成promises）</em> ，然后调用<code>resolve()</code>方法来执行他们。<br>
 在<a href="https://github.com/zafarali/learning-angular/blob/master/07-3-promises.html">07-3-promises.html</a>中我们展示了promise对象的基本功能以及一个略微更复杂的使用传入参数的例子。这里也有一种处理错误的方式，如下代码所示：</p>
 
-<div class="highlight highlight-javascript"><pre>defer.promise
+<div class="highlight highlight-source-js"><pre>defer.promise
     .then(<span class="pl-k">function</span>(<span class="pl-smi">name</span>){
         <span class="pl-k">return</span> name.<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>).<span class="pl-c1">reverse</span>().<span class="pl-c1">join</span>(<span class="pl-s"><span class="pl-pds">'</span><span class="pl-pds">'</span></span>);
     })
@@ -579,7 +577,7 @@ Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的
         <span class="pl-k">return</span> processedName;
     })
     .then(<span class="pl-k">function</span>(<span class="pl-smi">display</span>){
-        <span class="pl-en">console</span><span class="pl-c1">.log</span>(display);
+        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(display);
     }, <span class="pl-k">function</span>(<span class="pl-smi">error</span>){
         <span class="pl-c">//处理之前步骤中的任何错误</span>
     });</pre></div>
@@ -628,16 +626,16 @@ Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的
 <a id="http" class="anchor" href="#http" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>$http</code>
 </h4>
 
-<div class="highlight highlight-javascript"><pre>$http.get(<span class="pl-s"><span class="pl-pds">'</span>api/user/<span class="pl-pds">'</span></span>, {params<span class="pl-k">:</span>{id<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>5<span class="pl-pds">'</span></span>}}
+<div class="highlight highlight-source-js"><pre>$http.get(<span class="pl-s"><span class="pl-pds">'</span>api/user/<span class="pl-pds">'</span></span>, {params<span class="pl-k">:</span>{id<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>5<span class="pl-pds">'</span></span>}}
         ).success(<span class="pl-k">function</span>(<span class="pl-smi">data</span>,<span class="pl-smi">status</span>,<span class="pl-smi">headers</span>,<span class="pl-smi">config</span>){
             <span class="pl-c">//continue the application</span>
-        })<span class="pl-c1">.error</span>(<span class="pl-k">function</span>(<span class="pl-smi">data</span>,<span class="pl-smi">status</span>,<span class="pl-smi">headers</span>,<span class="pl-smi">config</span>){
+        }).error(<span class="pl-k">function</span>(<span class="pl-smi">data</span>,<span class="pl-smi">status</span>,<span class="pl-smi">headers</span>,<span class="pl-smi">config</span>){
             <span class="pl-c">//deal with the error here</span>
         });</pre></div>
 
 <p>正如你看到的漂亮的封装了我们需要经常重复使用的功能。上边所有的返回的类型都是promise对象。<code>$http</code>对象调用时传入一个<code>config</code>对象，格式如下：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> config <span class="pl-k">=</span> {
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> config <span class="pl-k">=</span> {
     method<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>GET<span class="pl-pds">"</span></span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">"</span>POST<span class="pl-pds">"</span></span>, <span class="pl-c">//...</span>
     url<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">"</span>urlOfTarget<span class="pl-pds">"</span></span>,
     params<span class="pl-k">:</span> [{key1<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>value1<span class="pl-pds">'</span></span>, key2<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>value2<span class="pl-pds">'</span></span>}], <span class="pl-c">//会变成 ?key1=value1&amp;key2=value2</span>
@@ -664,7 +662,7 @@ Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的
 <p><em>需要依赖ngResource模块</em>
 <code>$resource</code>是一个对于使用一个API的封装。我们通过调用<code>$resource(url, parameters, actions, options)</code>创建一个resource  </p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> UserProfile <span class="pl-k">=</span> $resource(<span class="pl-s"><span class="pl-pds">'</span>/api/user/:userID<span class="pl-pds">'</span></span>, 
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> UserProfile <span class="pl-k">=</span> $resource(<span class="pl-s"><span class="pl-pds">'</span>/api/user/:userID<span class="pl-pds">'</span></span>, 
 <span class="pl-c">//get the id from a passed in string.</span>
 {userID<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>@id<span class="pl-pds">'</span></span>},
 {
@@ -674,7 +672,7 @@ Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的
 
 <p>如同操作其他用户定义对象一样来操作这个对象：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> users <span class="pl-k">=</span> UserProfile.query(<span class="pl-k">function</span>(){
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> users <span class="pl-k">=</span> UserProfile.query(<span class="pl-k">function</span>(){
     <span class="pl-c">//this does: </span>
     <span class="pl-c">//GET: /api/user/</span>
     <span class="pl-c">//the server returns:</span>
@@ -695,7 +693,7 @@ Angular通过一个叫做<code>$q</code>的库提供promise。记住，关键的
 
 <p>我们甚至可以像处理普通对象一样来创建新的实例：</p>
 
-<div class="highlight highlight-javascript"><pre><span class="pl-k">var</span> newUser <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">UserProfile</span>({name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>James Bond<span class="pl-pds">"</span></span>});
+<div class="highlight highlight-source-js"><pre><span class="pl-k">var</span> newUser <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">UserProfile</span>({name<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">"</span>James Bond<span class="pl-pds">"</span></span>});
 newUser.$save();</pre></div>
 
 <p>这些函数/方法我们都可以不经过任何修改来使用：
@@ -720,7 +718,7 @@ newUser.$save();</pre></div>
 <strong>actions</strong> 扩展<code>$resource</code>对象的功能。上面已经展示过了，但这里为了更清楚来看另一个例子：</li>
 </ol>
 
-<div class="highlight highlight-javascript"><pre>app.factory(<span class="pl-s"><span class="pl-pds">'</span>Notes<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>$resource<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$resource</span>){
+<div class="highlight highlight-source-js"><pre>app.factory(<span class="pl-s"><span class="pl-pds">'</span>Notes<span class="pl-pds">'</span></span>, [<span class="pl-s"><span class="pl-pds">'</span>$resource<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">$resource</span>){
     <span class="pl-k">return</span> $resource(<span class="pl-s"><span class="pl-pds">'</span>api/notes/:id<span class="pl-pds">'</span></span>, <span class="pl-c1">null</span>, {<span class="pl-s"><span class="pl-pds">'</span>update<span class="pl-pds">'</span></span><span class="pl-k">:</span>{method<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">'</span>PUT<span class="pl-pds">'</span></span>}
     });
 }]);
@@ -754,8 +752,8 @@ Notes.update({id<span class="pl-k">:</span><span class="pl-s"><span class="pl-pd
 
 <p>我们之前已经看到了几种使用<code>$watch</code>来watch观察events/changes的方式，但这里呢我们介绍另一种周知的<code>$on</code>。他监听了一个由名字的事件。例如：</p>
 
-<div class="highlight highlight-javascript"><pre>scope.$on(<span class="pl-s"><span class="pl-pds">'</span>myEventName<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">event</span>, <span class="pl-smi">param1</span>, <span class="pl-smi">param2</span>, ...) {
-    <span class="pl-en">console</span><span class="pl-c1">.log</span>(param1 <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">+</span> param2);
+<div class="highlight highlight-source-js"><pre>scope.$on(<span class="pl-s"><span class="pl-pds">'</span>myEventName<span class="pl-pds">'</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">event</span>, <span class="pl-smi">param1</span>, <span class="pl-smi">param2</span>, ...) {
+    <span class="pl-en">console</span>.<span class="pl-c1">log</span>(param1 <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">'</span> <span class="pl-pds">'</span></span> <span class="pl-k">+</span> param2);
     scope.doEvent(param1, param2);
 });
 
@@ -785,14 +783,13 @@ scope.$broadcast(<span class="pl-s"><span class="pl-pds">'</span>myEventName<spa
 </ul>
 
 <h3>
-<a id="compile-和可变模板" class="anchor" href="#compile-%E5%92%8C%E5%8F%AF%E5%8F%98%E6%A8%A1%E6%9D%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a>
-<code>$compile</code> 和可变模板</h3>
+<a id="compile-和可变模板" class="anchor" href="#compile-%E5%92%8C%E5%8F%AF%E5%8F%98%E6%A8%A1%E6%9D%BF" aria-hidden="true"><span class="octicon octicon-link"></span></a><code>$compile</code> 和可变模板</h3>
 
 <p>我们利用了AngularJS所有的美好的东西组成了我们的web app，所有的东西都已经渲染好了，且能做一些生动的交互了。最近我遇到了一个当用户点击一些东西的时候，不更改view/刷新页面然后注入新的带有Angular的HTML内容到页面上的问题。我尝试着用<code>$scope.$apply()</code>或者<code>$scope.$digest()</code>，但是都没用。然后我发现Angular根本不知道我们插入到页面上的那部分新的HTML内容。我发现一个<code>$compile</code>的函数，他能够帮我们来完成需要的功能。</p>
 
 <p>在<a href="https://github.com/zafarali/learning-angular/blob/master/09-1-compile.html">09-1-compile.html</a>中展示的就是我在页面load之后注入了一些HTML的例子。有一些东西可能会迷惑我们：</p>
 
-<div class="highlight highlight-javascript"><pre>    <span class="pl-c">//.....</span>
+<div class="highlight highlight-source-js"><pre>    <span class="pl-c">//.....</span>
     <span class="pl-c">//编译分为两步：</span>
     <span class="pl-k">var</span> compiledStuff <span class="pl-k">=</span> $<span class="pl-c1">compile</span>(myHTML);
     <span class="pl-c">//这返回了一个必须绑定到一个scope的函数</span>
@@ -820,4 +817,3 @@ scope.$broadcast(<span class="pl-s"><span class="pl-pds">'</span>myEventName<spa
   
   </body>
 </html>
-
